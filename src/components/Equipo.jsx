@@ -61,7 +61,7 @@ export default function Equipo() {
                 <img 
                   src={miembro.imagen} 
                   alt={miembro.nombre}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover transition-all duration-500"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
