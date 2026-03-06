@@ -23,9 +23,9 @@ export default function Contacto() {
               href="https://wa.me/5492645063823"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-isla-orange px-8 py-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+              className="group flex items-center justify-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-brand-blue px-8 py-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-isla-orange transition-colors duration-300">
+              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-brand-blue transition-colors duration-300">
                 <MessageCircle size={28} className="text-brand-cream" />
               </div>
               <div className="text-left">
@@ -39,9 +39,9 @@ export default function Contacto() {
               href="https://wa.me/5492644437135"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-isla-orange px-8 py-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+              className="group flex items-center justify-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-brand-blue px-8 py-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-isla-orange transition-colors duration-300">
+              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-brand-blue transition-colors duration-300">
                 <MessageCircle size={28} className="text-brand-cream" />
               </div>
               <div className="text-left">
@@ -71,10 +71,10 @@ export default function Contacto() {
 
           {/* Redes Sociales - Aquí podés poner el link real al Instagram de la agencia */}
           <div className="flex gap-4">
-            <a href="https://www.instagram.com/studios_isla/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-isla-orange transition-colors">
+            <a href="https://www.instagram.com/studios_isla/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-brand-blue transition-colors">
               <Instagram size={24} />
             </a>
-            <a href="mailto:contacto@islastudio.com" className="text-gray-500 hover:text-isla-orange transition-colors">
+            <a href="mailto:islastudio39@gmail.com" className="text-gray-500 hover:text-brand-blue transition-colors">
               <Mail size={24} />
             </a>
           </div>

@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  /* Playfair Display para textos largos (elegante) */
   body {
-    font-family: 'Playfair Display', serif; /* Fuente secundaria */
+    font-family: 'Playfair Display', serif; 
   }
-  h1, h2, h3, h4 {
-    font-family: 'Montserrat', sans-serif; /* Fuente principal */
-    font-weight: 900;
+  
+  /* Montserrat para los títulos y botones (moderno y fuerte) */
+  h1, h2, h3, h4, h5, h6, nav, a {
+    font-family: 'Montserrat', sans-serif;
   }
 }

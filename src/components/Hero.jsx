@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col justify-center items-center bg-black relative overflow-hidden text-brand-cream p-4">
       
       {/* Efecto "Glow" de agencia: Un resplandor naranja muy sutil en el fondo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-isla-orange opacity-20 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-brand-blue opacity-20 blur-[120px] rounded-full pointer-events-none"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ export default function Hero() {
       >
         <a 
           href="#valores" 
-          className="px-8 py-3 bg-brand-blue text-brand-cream font-bold rounded-full hover:bg-[#e66000] transition-all duration-300 transform hover:scale-105 inline-block"
+          className="px-8 py-3 bg-brand-blue text-brand-cream font-bold rounded-full hover:bg-[#005bb5] transition-all duration-300 transform hover:scale-105 inline-block"
         >
           Conocé nuestra filosofía
         </a>

@@ -57,7 +57,7 @@ export default function Equipo() {
               className="group text-center"
             >
               {/* Contenedor de la foto */}
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-zinc-800 border-4 border-zinc-950 group-hover:border-isla-orange transition-colors duration-300">
+              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-zinc-800 border-4 border-zinc-950 group-hover:border-brand-blue transition-colors duration-300">
                 {/* El onError hace que si todavía no pusiste la foto real, 
                   se muestre un ícono de usuario por defecto en vez de un error roto.
                 */}
@@ -78,7 +78,7 @@ export default function Equipo() {
 
               {/* Textos */}
               <h3 className="text-2xl font-bold mb-1">{miembro.nombre}</h3>
-              <p className="text-isla-orange font-semibold text-sm mb-3 uppercase tracking-wider">
+              <p className="text-brand-blue font-semibold text-sm mb-3 uppercase tracking-wider">
                 {miembro.cargo}
               </p>
               <p className="text-brand-cream text-sm leading-relaxed px-4">

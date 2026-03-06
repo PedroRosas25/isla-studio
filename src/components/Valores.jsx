@@ -47,14 +47,14 @@ export default function Valores() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
               // Acá agregamos la "reactividad": hover:-translate-y-2 y el shadow naranja
-              className="group relative p-8 bg-zinc-900 rounded-2xl border border-zinc-800 hover:border-isla-orange/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,107,0,0.15)] overflow-hidden"
+              className="group relative p-8 bg-zinc-900 rounded-2xl border border-zinc-800 hover:border-brand-blue/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0, 122, 255.15)] overflow-hidden"
             >
               {/* Resplandor interno sutil que aparece en el hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-isla-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="relative z-10">
                 {/* El contenedor del ícono se vuelve naranja, crece y gira un poquito */}
-                <div className="bg-zinc-800 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-isla-orange group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(255,107,0,0.4)]">
+                <div className="bg-zinc-800 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-blue group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(0, 122, 255.4)]">
                   {valor.icono}
                 </div>
                 

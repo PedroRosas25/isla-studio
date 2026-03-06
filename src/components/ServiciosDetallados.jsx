@@ -6,32 +6,32 @@ const servicios = [
   {
     titulo: "Gestión de Redes y Contenidos",
     descripcion: "Planificación mensual y producción de piezas audiovisuales para Instagram, TikTok y YouTube. Incluimos la automatización de mensajes privados para optimizar la atención.",
-    icono: <Smartphone size={32} className="text-isla-orange" />
+    icono: <Smartphone size={32} className="text-brand-blue" />
   },
   {
     titulo: "Filmmaking y Edición Profesional",
     descripcion: "Grabación en locación y edición de primer nivel. Implementamos herramientas de IA para potenciar la calidad, el dinamismo y la innovación.",
-    icono: <Video size={32} className="text-isla-orange" />
+    icono: <Video size={32} className="text-brand-blue" />
   },
   {
     titulo: "Programación Web y Automatizaciones",
     descripcion: "Desarrollamos páginas web, landing pages y sistemas a medida. Transformamos tu negocio físico en una sucursal digital optimizada para vender 24/7.",
-    icono: <Globe size={32} className="text-isla-orange" />
+    icono: <Globe size={32} className="text-brand-blue" />
   },
   {
     titulo: "Alianzas y Publicidad en Medios",
     descripcion: "Potenciamos tu marca mediante convenios exclusivos con los principales medios locales, garantizando espacios publicitarios preferenciales.",
-    icono: <Megaphone size={32} className="text-isla-orange" />
+    icono: <Megaphone size={32} className="text-brand-blue" />
   },
   {
     titulo: "Análisis, Métricas y Optimización",
     descripcion: "Monitoreamos el desempeño de tus redes con reportes periódicos para realizar ajustes estratégicos basados en datos reales.",
-    icono: <TrendingUp size={32} className="text-isla-orange" />
+    icono: <TrendingUp size={32} className="text-brand-blue" />
   },
   {
     titulo: "Innovación y Fechas Clave",
     descripcion: "Desarrollamos campañas específicas para fechas comerciales y actualizamos constantemente las dinámicas para mantener una comunicación moderna.",
-    icono: <Lightbulb size={32} className="text-isla-orange" />
+    icono: <Lightbulb size={32} className="text-brand-blue" />
   }
 ];
 
@@ -59,7 +59,7 @@ export default function ServiciosDetallados() {
       <motion.div
         className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
         animate={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,107,0,0.06), transparent 80%)`
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 122, 255.06), transparent 80%)`
         }}
       />
 
@@ -89,7 +89,7 @@ export default function ServiciosDetallados() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               // Agregamos un fondo semi-transparente (bg-zinc-950/80) y backdrop-blur para que interactúe con el orbe de fondo
-              className="flex flex-col p-8 bg-zinc-950/80 backdrop-blur-sm rounded-2xl border border-zinc-800 hover:border-isla-orange transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              className="flex flex-col p-8 bg-zinc-950/80 backdrop-blur-sm rounded-2xl border border-zinc-800 hover:border-brand-blue transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
             >
               <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800 transition-colors w-fit mb-6">
                 {servicio.icono}
