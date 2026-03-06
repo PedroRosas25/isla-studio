@@ -74,7 +74,7 @@ export default function Contacto() {
               
               {/* Botón Email Redondo */}
               <a 
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=pedrorosasaguilar9@gmail.com&su=Consulta+desde+la+Web" 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=islastudio39@gmail.com&su=Consulta+desde+la+Web" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center bg-zinc-900 border border-zinc-800 hover:border-brand-blue p-4 rounded-full transition-all group shadow-inner shadow-black/30"

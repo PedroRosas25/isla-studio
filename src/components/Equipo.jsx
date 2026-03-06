@@ -10,10 +10,10 @@ const acentosGraficos = [
 ];
 
 const equipo = [
-  { nombre: "Juan C. Bataller", cargo: "Co-Founder & Director General", descripcion: "Estrategia de negocios y dirección general de la agencia.", imagen: "/equipo/juan.jpg" },
-  { nombre: "Santiago Castro", cargo: "Co-Founder & Director Creativo", descripcion: "Dirección de arte, alianzas estratégicas y relaciones públicas.", imagen: "/equipo/santiago.jpg" },
-  { nombre: "Andrés Yurcic", cargo: "Director Audiovisual / Filmmaker", descripcion: "Grabación en locación y edición de video con implementación de IA.", imagen: "/equipo/andres.jpg" },
-  { nombre: "Pedro Rosas", cargo: "Tech Lead & Web Developer", descripcion: "Desarrollo de software, automatizaciones y arquitectura web.", imagen: "/equipo/pedro.jpg" }
+  { nombre: "Juan C. Bataller", cargo: "Co-Founder & Director General", descripcion: "Estrategia de negocios y dirección general de la agencia.", imagen: "./equipo/juan.jpg" },
+  { nombre: "Santiago Castro", cargo: "Co-Founder & Director Creativo", descripcion: "Dirección de arte, alianzas estratégicas y relaciones públicas.", imagen: "./equipo/santiago.jpg" },
+  { nombre: "Andrés Yurcic", cargo: "Director Audiovisual / Filmmaker", descripcion: "Grabación en locación y edición de video con implementación de IA.", imagen: "./equipo/andres.jpg" },
+  { nombre: "Pedro Rosas", cargo: "Tech Lead & Web Developer", descripcion: "Desarrollo de software, automatizaciones y arquitectura web.", imagen: "./equipo/pedro.jpg" }
 ];
 
 export default function Equipo() {
