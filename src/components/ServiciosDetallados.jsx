@@ -1,70 +1,50 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Smartphone, Video, Globe, TrendingUp, Megaphone, Lightbulb } from "lucide-react";
 
+const acentosGraficos = [
+  // Distribución más abierta por toda la pantalla
+  { id: 1, text: "✦", top: "5%", left: "5%", size: "text-4xl" },
+  { id: 2, text: "○", top: "15%", right: "10%", size: "text-5xl" },
+  { id: 3, text: "//", top: "30%", left: "15%", size: "text-2xl" },
+  { id: 4, text: "□", top: "45%", right: "5%", size: "text-6xl" },
+  { id: 5, text: "✦", top: "60%", left: "8%", size: "text-4xl" },
+  { id: 6, text: "○", top: "75%", right: "15%", size: "text-3xl" },
+  { id: 7, text: "//", top: "90%", left: "20%", size: "text-2xl" },
+  { id: 8, text: "□", top: "85%", right: "5%", size: "text-5xl" },
+];
+
 const servicios = [
-  {
-    titulo: "Gestión de Redes y Contenidos",
-    descripcion: "Planificación mensual y producción de piezas audiovisuales para Instagram, TikTok y YouTube. Incluimos la automatización de mensajes privados para optimizar la atención.",
-    icono: <Smartphone size={32} className="text-brand-blue" />
-  },
-  {
-    titulo: "Filmmaking y Edición Profesional",
-    descripcion: "Grabación en locación y edición de primer nivel. Implementamos herramientas de IA para potenciar la calidad, el dinamismo y la innovación.",
-    icono: <Video size={32} className="text-brand-blue" />
-  },
-  {
-    titulo: "Programación Web y Automatizaciones",
-    descripcion: "Desarrollamos páginas web, landing pages y sistemas a medida. Transformamos tu negocio físico en una sucursal digital optimizada para vender 24/7.",
-    icono: <Globe size={32} className="text-brand-blue" />
-  },
-  {
-    titulo: "Alianzas y Publicidad en Medios",
-    descripcion: "Potenciamos tu marca mediante convenios exclusivos con los principales medios locales, garantizando espacios publicitarios preferenciales.",
-    icono: <Megaphone size={32} className="text-brand-blue" />
-  },
-  {
-    titulo: "Análisis, Métricas y Optimización",
-    descripcion: "Monitoreamos el desempeño de tus redes con reportes periódicos para realizar ajustes estratégicos basados en datos reales.",
-    icono: <TrendingUp size={32} className="text-brand-blue" />
-  },
-  {
-    titulo: "Innovación y Fechas Clave",
-    descripcion: "Desarrollamos campañas específicas para fechas comerciales y actualizamos constantemente las dinámicas para mantener una comunicación moderna.",
-    icono: <Lightbulb size={32} className="text-brand-blue" />
-  }
+  { titulo: "Gestión de Redes y Contenidos", descripcion: "Planificación mensual y producción de piezas audiovisuales para Instagram, TikTok y YouTube. Incluimos la automatización de mensajes privados para optimizar la atención.", icono: <Smartphone size={32} className="text-brand-blue" /> },
+  { titulo: "Filmmaking y Edición Profesional", descripcion: "Grabación en locación y edición de primer nivel. Implementamos herramientas de IA para potenciar la calidad, el dinamismo y la innovación.", icono: <Video size={32} className="text-brand-blue" /> },
+  { titulo: "Programación Web y Automatizaciones", descripcion: "Desarrollamos páginas web, landing pages y sistemas a medida. Transformamos tu negocio físico en una sucursal digital optimizada para vender 24/7.", icono: <Globe size={32} className="text-brand-blue" /> },
+  { titulo: "Alianzas y Publicidad en Medios", descripcion: "Potenciamos tu marca mediante convenios exclusivos con los principales medios locales, garantizando espacios publicitarios preferenciales.", icono: <Megaphone size={32} className="text-brand-blue" /> },
+  { titulo: "Análisis, Métricas y Optimización", descripcion: "Monitoreamos el desempeño de tus redes con reportes periódicos para realizar ajustes estratégicos basados en datos reales.", icono: <TrendingUp size={32} className="text-brand-blue" /> },
+  { titulo: "Innovación y Fechas Clave", descripcion: "Desarrollamos campañas específicas para fechas comerciales y actualizamos constantemente las dinámicas para mantener una comunicación moderna.", icono: <Lightbulb size={32} className="text-brand-blue" /> }
 ];
 
 export default function ServiciosDetallados() {
-  // Estado para guardar la posición del mouse
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  // Función que actualiza las coordenadas cuando movemos el mouse sobre la sección
-  const handleMouseMove = (e) => {
-    const { left, top } = e.currentTarget.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - left,
-      y: e.clientY - top,
-    });
-  };
-
   return (
-    <section 
-      id="servicios" 
-      className="py-24 bg-zinc-900 text-brand-cream px-4 relative overflow-hidden group"
-      onMouseMove={handleMouseMove} // Escuchamos el movimiento del mouse
-    >
+    <section id="servicios" className="py-24 bg-zinc-900 text-brand-cream px-4 relative overflow-hidden">
       
-      {/* EL EFECTO MÁGICO: Un orbe naranja difuminado que sigue al cursor */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-        animate={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 122, 255.06), transparent 80%)`
-        }}
-      />
-
-      {/* Una grilla de fondo súper sutil para darle textura tecnológica */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] z-0"></div>
+      {/* SÍMBOLOS MÁS NOTORIOS Y POR TODA LA PANTALLA */}
+      {acentosGraficos.map((acento) => (
+        <motion.div
+          key={acento.id}
+          className={`absolute text-brand-blue/30 font-black pointer-events-none hidden md:block ${acento.size} drop-shadow-[0_0_10px_rgba(0,122,255,0.5)]`}
+          style={{ top: acento.top, left: acento.left, right: acento.right, bottom: acento.bottom }}
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.2, 1] 
+          }}
+          transition={{ 
+            duration: 25, 
+            repeat: Infinity, 
+            ease: "linear" 
+          }}
+        >
+          {acento.text}
+        </motion.div>
+      ))}
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
@@ -88,16 +68,15 @@ export default function ServiciosDetallados() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              // Agregamos un fondo semi-transparente (bg-zinc-950/80) y backdrop-blur para que interactúe con el orbe de fondo
-              className="flex flex-col p-8 bg-zinc-950/80 backdrop-blur-sm rounded-2xl border border-zinc-800 hover:border-brand-blue transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              className="flex flex-col p-8 bg-zinc-950/50 backdrop-blur-md rounded-2xl border border-zinc-800 hover:border-brand-blue transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,122,255,0.1)] relative overflow-hidden"
             >
-              <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800 transition-colors w-fit mb-6">
+              <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800 w-fit mb-6">
                 {servicio.icono}
               </div>
               
               <div>
                 <h3 className="text-2xl font-bold mb-3">{servicio.titulo}</h3>
-                <p className="text-brand-cream leading-relaxed">
+                <p className="text-brand-cream/80 leading-relaxed">
                   {servicio.descripcion}
                 </p>
               </div>

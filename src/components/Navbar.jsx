@@ -7,33 +7,32 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      // fixed y z-50 hacen que se quede pegada arriba de todo
-      // backdrop-blur-md le da el efecto de vidrio difuminado
       className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/85 backdrop-blur-md border-b border-zinc-900"
     >
-      <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+      {/* Subimos el height de h-20 a h-24 para que quepan los elementos más grandes */}
+      <div className="max-w-6xl mx-auto px-4 h-24 flex items-center justify-between">
         
-        {/* Logo - Clickeable para ir al inicio (href="#") */}
-        <a href="#" className="flex items-center gap-3 group">
-          <img src={logo} alt="Isla Studio" className="h-10 w-auto transition-transform group-hover:scale-105" />
-          {/* El nombre se oculta en celulares muy chicos para que no choque con el botón */}
-          <span className="text-brand-cream font-black text-xl tracking-tighter hidden sm:block">
+        {/* Logo - Clickeable */}
+        <a href="#" className="flex items-center gap-4 group">
+          <img src={logo} alt="Isla Studio" className="h-14 w-auto transition-transform group-hover:scale-105" />
+          {/* Nombre: subido a text-3xl */}
+          <span className="text-brand-cream font-black text-3xl tracking-tighter hidden sm:block">
             ISLA STUDIO
           </span>
         </a>
 
-        {/* Links de navegación (Visibles en PC, ocultos en móvil para no amontonar) */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-brand-cream">
+        {/* Links de navegación: subidos a text-base y más separación (gap-10) */}
+        <div className="hidden md:flex items-center gap-10 text-base font-bold text-brand-cream uppercase tracking-wider">
           <a href="#valores" className="hover:text-brand-blue transition-colors">Filosofía</a>
           <a href="#servicios" className="hover:text-brand-blue transition-colors">Servicios</a>
           <a href="#planes" className="hover:text-brand-blue transition-colors">Planes</a>
           <a href="#equipo" className="hover:text-brand-blue transition-colors">Equipo</a>
         </div>
 
-        {/* Botón CTA - Corregido el bg-brand-blue, el hover y la sombra azul */}
+        {/* Botón CTA - Un poco más grande el padding y texto */}
         <a 
           href="#contacto" 
-          className="px-6 py-2.5 bg-brand-blue text-brand-cream text-sm font-bold rounded-full hover:bg-[#005bb5] transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(0,122,255,0.4)]"
+          className="px-8 py-3 bg-brand-blue text-brand-cream text-base font-bold rounded-full hover:bg-[#005bb5] transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(0,122,255,0.4)]"
         >
           Consultar Ahora
         </a>

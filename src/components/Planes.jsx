@@ -67,7 +67,7 @@ export default function Planes() {
           </p>
         </motion.div>
 
-        <div className="mb-24">
+        <div className="mb-12">
           <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
             <LayoutGrid className="text-brand-blue" size={28} />
             <h3 className="text-3xl font-bold">Contratación Modular</h3>
@@ -97,6 +97,21 @@ export default function Planes() {
             ))}
           </div>
         </div>
+
+        {/* BOTÓN DE CONSULTA */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <a href="#contacto" className="inline-block px-12 py-4 bg-brand-blue text-brand-cream font-bold text-xl rounded-full hover:bg-[#005bb5] transition-all hover:scale-105 shadow-[0_0_30px_rgba(0,122,255,0.3)]">
+            Consultar Ahora
+          </a>
+          
+          {/* LÍNEA DIVISORIA DEBAJO DEL BOTÓN */}
+          <div className="mt-12 mb-12 border-t border-zinc-800 w-full"> </div>
+        </motion.div>
 
         <div>
           <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">

@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  /* Playfair Display para textos largos (elegante) */
+  /* Todo el cuerpo de la página usa  Montserrat (moderna y gruesa) */
   body {
-    font-family: 'Playfair Display', serif; 
+    @apply  font-montserrat text-brand-cream; 
   }
   
-  /* Montserrat para los títulos y botones (moderno y fuerte) */
-  h1, h2, h3, h4, h5, h6, nav, a {
-    font-family: 'Montserrat', sans-serif;
+  /* Todos los títulos, botones y links de navegación usan Playfair Display  (elegante y con serifa) */
+  h1, h2, h3, h4, h5, h6, nav, a, button {
+    @apply font-playfair;
   }
 }

@@ -8,7 +8,7 @@ import Contacto from './components/Contacto'
 
 function App() {
   return (
-    <main className="bg-zinc-950 min-h-screen font-sans overflow-x-hidden">
+    <main className="bg-zinc-950 min-h-screen overflow-x-hidden">
       {/* La barra de navegación va primera */}
       <Navbar />
       
