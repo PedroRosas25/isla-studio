@@ -20,11 +20,12 @@ export default function Equipo() {
   return (
     <section id="equipo" className="py-24 bg-zinc-900 border-t border-zinc-800 text-brand-cream px-4 relative overflow-hidden">
       
-      {/* SÍMBOLOS GEOMÉTRICOS INTEGRADOS */}
+      {/* SÍMBOLOS GEOMÉTRICOS (Ahora visibles en celular también) */}
       {acentosGraficos.map((acento) => (
         <motion.div
           key={acento.id}
-          className={`absolute text-brand-blue/20 font-black pointer-events-none hidden md:block ${acento.size} drop-shadow-[0_0_10px_rgba(0,122,255,0.3)]`}
+          // Quitamos 'hidden md:block' para que se vean en el celu y subimos un poco la opacidad a /30
+          className={`absolute text-brand-blue/30 font-black pointer-events-none ${acento.size} drop-shadow-[0_0_10px_rgba(0,122,255,0.3)]`}
           style={{ top: acento.top, left: acento.left, right: acento.right }}
           animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -55,7 +56,10 @@ export default function Equipo() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="group text-center bg-zinc-950/40 p-6 rounded-3xl border border-zinc-800/50 hover:border-brand-blue transition-all duration-300"
+              // LA MAGIA ESTÁ ACÁ: 
+              // border-brand-blue/30 (celular) -> md:border-zinc-800/50 (PC) -> hover:border-brand-blue (PC Hover)
+              // shadow-[0_0_15px_rgba(0,122,255,0.1)] (celular) -> md:shadow-none (PC)
+              className="group text-center bg-zinc-950/40 p-6 rounded-3xl border border-brand-blue/30 md:border-zinc-800/50 hover:border-brand-blue shadow-[0_0_15px_rgba(0,122,255,0.1)] md:shadow-none hover:shadow-[0_0_15px_rgba(0,122,255,0.2)] transition-all duration-300"
             >
               <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden bg-zinc-800 border-4 border-zinc-900 group-hover:border-brand-blue transition-colors duration-300">
                 <img 

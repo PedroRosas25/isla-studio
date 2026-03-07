@@ -3,17 +3,17 @@ import { Target, Zap, Cpu } from "lucide-react";
 
 const valores = [
   {
-    icono: <Target size={32} className="text-brand-cream group-hover:text-brand-cream transition-colors duration-500" />,
+    icono: <Target size={32} className="text-brand-cream transition-colors duration-500" />,
     titulo: "Orientados a Resultados",
     descripcion: "Acompañamos a marcas y empresas en su presencia digital mediante estrategias de contenido creativas y profesionales, siempre adaptadas a los objetivos de cada cliente."
   },
   {
-    icono: <Cpu size={32} className="text-brand-cream group-hover:text-brand-cream transition-colors duration-500" />,
+    icono: <Cpu size={32} className="text-brand-cream transition-colors duration-500" />,
     titulo: "Innovación & Tecnología",
     descripcion: "Nuestro enfoque se basa en el uso de herramientas tecnológicas avanzadas, incluyendo Inteligencia Artificial, para optimizar la calidad y el impacto de lo que producimos."
   },
   {
-    icono: <Zap size={32} className="text-brand-cream group-hover:text-brand-cream transition-colors duration-500" />,
+    icono: <Zap size={32} className="text-brand-cream transition-colors duration-500" />,
     titulo: "Planificación Estratégica",
     descripcion: "No publicamos por publicar. Garantizamos coherencia estética, narrativa visual y un seguimiento de métricas reales para asegurar el crecimiento."
   }
@@ -48,12 +48,15 @@ export default function Valores() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="group relative p-8 bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 hover:border-brand-blue/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0,122,255,0.15)] overflow-hidden"
+              // TARJETA: Brillo y borde permanente en celular, interactivo en PC
+              className="group relative p-8 bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-brand-blue/30 md:border-zinc-800 hover:border-brand-blue/50 transition-all duration-500 hover:-translate-y-2 shadow-[0_5px_20px_rgba(0,122,255,0.1)] md:shadow-none hover:shadow-[0_10px_40px_rgba(0,122,255,0.15)] overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* GRADIENTE INTERNO: Visible en celular, oculto en PC hasta hacer hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="relative z-10">
-                <div className="bg-zinc-800 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-blue group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(0,122,255,0.4)]">
+                {/* CAJA DEL ÍCONO: Resplandor azul sutil en celular, fuerte en hover de PC */}
+                <div className="bg-zinc-800 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-brand-blue/30 md:border-transparent group-hover:border-transparent group-hover:bg-brand-blue group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-[0_0_15px_rgba(0,122,255,0.15)] md:shadow-none group-hover:shadow-[0_0_20px_rgba(0,122,255,0.4)]">
                   {valor.icono}
                 </div>
                 

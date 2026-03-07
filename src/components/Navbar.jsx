@@ -25,7 +25,8 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/85 backdrop-blur-md border-b border-zinc-900"
+      // CAMBIO AQUÍ: bg-zinc-950/60 (más transparente) y backdrop-blur-lg (más desenfoque tipo cristal)
+      className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/60 backdrop-blur-lg border-b border-zinc-900/50"
     >
       <div className="max-w-6xl mx-auto px-4 h-24 flex items-center justify-between">
         
@@ -72,7 +73,8 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-24 left-0 right-0 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-900 overflow-hidden"
+            // CAMBIO AQUÍ: bg-zinc-950/70 y backdrop-blur-lg para mantener el estilo en el desplegable
+            className="md:hidden absolute top-24 left-0 right-0 bg-zinc-950/70 backdrop-blur-lg border-b border-zinc-900/50 overflow-hidden"
           >
             <div className="flex flex-col px-6 py-8 gap-6 text-center shadow-2xl">
               {/* Vínculos Móviles */}

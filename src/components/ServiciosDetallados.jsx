@@ -26,11 +26,12 @@ export default function ServiciosDetallados() {
   return (
     <section id="servicios" className="py-24 bg-zinc-900 text-brand-cream px-4 relative overflow-hidden">
       
-      {/* SÍMBOLOS MÁS NOTORIOS Y POR TODA LA PANTALLA */}
+      {/* SÍMBOLOS MÁS NOTORIOS Y POR TODA LA PANTALLA (Ahora visibles en celular) */}
       {acentosGraficos.map((acento) => (
         <motion.div
           key={acento.id}
-          className={`absolute text-brand-blue/30 font-black pointer-events-none hidden md:block ${acento.size} drop-shadow-[0_0_10px_rgba(0,122,255,0.5)]`}
+          // AQUÍ QUITAMOS EL 'hidden md:block' PARA QUE SE VEAN EN MÓVIL
+          className={`absolute text-brand-blue/30 font-black pointer-events-none ${acento.size} drop-shadow-[0_0_10px_rgba(0,122,255,0.5)]`}
           style={{ top: acento.top, left: acento.left, right: acento.right, bottom: acento.bottom }}
           animate={{ 
             rotate: [0, 360],
@@ -68,9 +69,11 @@ export default function ServiciosDetallados() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col p-8 bg-zinc-950/50 backdrop-blur-md rounded-2xl border border-zinc-800 hover:border-brand-blue transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,122,255,0.1)] relative overflow-hidden"
+              // CLASES ACTUALIZADAS PARA QUE BRILLE EN CELULAR Y USE HOVER EN PC
+              className="flex flex-col p-8 bg-zinc-950/50 backdrop-blur-md rounded-2xl border border-brand-blue/30 md:border-zinc-800 hover:border-brand-blue shadow-[0_0_15px_rgba(0,122,255,0.05)] md:shadow-none transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,122,255,0.1)] relative overflow-hidden group"
             >
-              <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800 w-fit mb-6">
+              {/* Le agregamos group-hover al icono para que también reaccione en PC */}
+              <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800 w-fit mb-6 group-hover:border-brand-blue/50 transition-colors duration-300">
                 {servicio.icono}
               </div>
               

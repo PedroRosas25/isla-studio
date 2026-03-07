@@ -81,13 +81,13 @@ export default function Planes() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-zinc-900/60 backdrop-blur-md p-8 rounded-2xl border border-zinc-800 hover:border-brand-blue transition-all hover:-translate-y-1"
+                // MODULARES: Borde y sombra en móvil, interactivo en PC
+                className="bg-zinc-900/60 backdrop-blur-md p-8 rounded-2xl border border-brand-blue/30 md:border-zinc-800 hover:border-brand-blue shadow-[0_5px_15px_rgba(0,122,255,0.05)] md:shadow-none hover:shadow-[0_5px_20px_rgba(0,122,255,0.1)] transition-all hover:-translate-y-1 group"
               >
-                <h4 className="text-xl font-bold mb-6 text-brand-blue">{mod.categoria}</h4>
+                <h4 className="text-xl font-bold mb-6 text-brand-blue group-hover:scale-105 transition-transform origin-left">{mod.categoria}</h4>
                 <ul className="space-y-4">
                   {mod.incluye.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-brand-grey">
-                      {/* Tilde verde reemplazado por azul de la marca para más coherencia */}
+                    <li key={i} className="flex items-start gap-3 text-brand-grey group-hover:text-gray-300 transition-colors">
                       <CheckCircle2 size={20} className="text-brand-blue shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
@@ -127,10 +127,11 @@ export default function Planes() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                // PLANES INTEGRALES: Borde sutil azul en móvil (si no es destacado), hover en PC
                 className={`p-6 rounded-2xl border flex flex-col h-full relative overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
                   plan.destacado 
-                    ? 'bg-zinc-900/80 backdrop-blur-md border-brand-blue shadow-[0_0_30px_rgba(0,122,255,0.15)]' 
-                    : 'bg-zinc-950/60 backdrop-blur-md border-zinc-800 hover:border-brand-blue/50'
+                    ? 'bg-zinc-900/80 backdrop-blur-md border-brand-blue shadow-[0_0_30px_rgba(0,122,255,0.2)]' 
+                    : 'bg-zinc-950/60 backdrop-blur-md border-brand-blue/30 md:border-zinc-800 hover:border-brand-blue/60 shadow-[0_5px_15px_rgba(0,122,255,0.05)] md:shadow-none hover:shadow-[0_5px_20px_rgba(0,122,255,0.1)]'
                 }`}
               >
                 {plan.destacado && (
@@ -162,7 +163,7 @@ export default function Planes() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
           viewport={{ once: true }}
-          className="mt-12 p-4 bg-zinc-900/50 rounded-xl border border-zinc-800 text-sm text-brand-grey text-center relative z-10"
+          className="mt-12 p-4 bg-zinc-900/50 rounded-xl border border-brand-blue/20 md:border-zinc-800 text-sm text-brand-grey text-center relative z-10 shadow-[0_0_15px_rgba(0,122,255,0.05)] md:shadow-none"
         >
           <p><strong>Aclaración:</strong> El costo de la publicidad paga o difusión en medios locales se cotiza de manera independiente según el medio y alcance deseado.</p>
         </motion.div>
