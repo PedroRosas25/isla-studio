@@ -23,18 +23,15 @@ const acentosGraficos = [
   { id: 16, text: "✦", top: "85%", right: "35%", size: "text-2xl", delay: 1.6 },
 ];
 
-const palabrasDinamicas = [
-  "tu Presencia Digital.",
-  "tu Marca.",
-  "tu Contenido Visual.",
-  "tus Ventas."
-];
+const palabrasDinamicas = ["tu Presencia Digital.", "tu Marca.", "tu Contenido Visual.", "tus Ventas."];
 
 export default function Hero() {
   const xMouse = useMotionValue(0);
   const yMouse = useMotionValue(0);
 
+  // Lógica Mouse (Solo para el fondo)
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const handleMouseMove = (e) => {
       xMouse.set(e.clientX / window.innerWidth - 0.5);
       yMouse.set(e.clientY / window.innerHeight - 0.5);
@@ -49,9 +46,6 @@ export default function Hero() {
   const movX = useTransform(smoothX, [-0.5, 0.5], [40, -40]);
   const movY = useTransform(smoothY, [-0.5, 0.5], [40, -40]);
 
-  const rotateX = useTransform(smoothY, [-0.5, 0.5], ["8deg", "-8deg"]);
-  const rotateY = useTransform(smoothX, [-0.5, 0.5], ["-8deg", "8deg"]);
-
   const [indexPalabra, setIndexPalabra] = useState(0);
   useEffect(() => {
     const intervalo = setInterval(() => {
@@ -63,12 +57,11 @@ export default function Hero() {
   return (
     <section 
       style={{ perspective: "1000px" }}
-      // CAMBIO CLAVE: min-h-[100dvh] en lugar de min-h-screen
       className="relative min-h-[100dvh] flex flex-col justify-center items-center bg-[#151618] overflow-hidden"
     >
-      
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,122,255,0.06)_0%,transparent_70%)] pointer-events-none z-0"></div>
 
+      {/* Paralaje aplicado SOLAMENTE a los símbolos del fondo */}
       {acentosGraficos.map((acento) => (
         <motion.div
           key={acento.id}
@@ -77,8 +70,8 @@ export default function Hero() {
             top: acento.top,
             left: acento.left,
             right: acento.right,
-            x: movX,
-            y: movY,
+            x: window.innerWidth >= 768 ? movX : 0,
+            y: window.innerWidth >= 768 ? movY : 0,
           }}
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: acento.delay }}
@@ -87,32 +80,29 @@ export default function Hero() {
         </motion.div>
       ))}
 
+      {/* Bloque central: Animaciones originales INTACTAS */}
       <motion.div 
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-4xl mx-auto -mt-10 md:mt-0"
       >
-        
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1, y: [-5, 5, -5] }}
-          style={{ z: 60 }}
           transition={{ 
-            opacity: { duration: 1 },
-            scale: { duration: 1 },
+            opacity: { duration: 1 }, 
+            scale: { duration: 1 }, 
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" } 
           }}
         >
           <img 
             src={logo} 
             alt="Isla Studio Logo" 
-            className="h-24 md:h-36 w-auto mb-6 drop-shadow-2xl"
+            className="h-24 md:h-36 w-auto mb-6 drop-shadow-2xl" 
           />
         </motion.div>
 
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          style={{ z: 40 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tighter text-brand-cream"
         >
@@ -122,20 +112,18 @@ export default function Hero() {
         <motion.div 
           initial={{ width: 0, opacity: 0 }}
           animate={{ width: "80px", opacity: 1 }}
-          style={{ z: 30 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="h-1 bg-brand-blue rounded-full mb-6"
         />
 
+        {/* AJUSTE: añadido ml-4 para mover el bloque un poco a la derecha */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          style={{ z: 20 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-2xl text-brand-grey font-light mb-12 flex flex-col md:flex-row items-center justify-center gap-2"
+          className="text-lg md:text-2xl text-brand-grey font-light mb-12 flex flex-col md:flex-row items-center justify-center gap-2 ml-4"
         >
           <span>Impulsamos y elevamos</span>
-          
           <div className="relative w-full md:w-[280px] h-[32px] md:h-[40px] flex items-center justify-center md:justify-start">
             <AnimatePresence mode="wait">
               <motion.span
@@ -155,7 +143,6 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          style={{ z: 50 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <a 
@@ -167,7 +154,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* INDICADOR DE SCROLL: Subido a bottom-16 en móvil, y se mantiene en bottom-10 en PC */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -182,7 +168,6 @@ export default function Hero() {
           <ChevronDown size={28} className="opacity-70 text-brand-blue" />
         </motion.div>
       </motion.div>
-
     </section>
   );
 }
