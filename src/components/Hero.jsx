@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { ChevronDown } from "lucide-react";
 import logo from "../assets/logo.png";
 
@@ -25,11 +25,10 @@ const acentosGraficos = [
 
 const palabrasDinamicas = ["tu Presencia Digital.", "tu Marca.", "tu Contenido Visual.", "tus Ventas."];
 
-export default function Hero() {
+function Hero() {
   const xMouse = useMotionValue(0);
   const yMouse = useMotionValue(0);
 
-  // Lógica Mouse (Solo para el fondo)
   useEffect(() => {
     if (window.innerWidth < 768) return;
     const handleMouseMove = (e) => {
@@ -61,11 +60,11 @@ export default function Hero() {
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,122,255,0.06)_0%,transparent_70%)] pointer-events-none z-0"></div>
 
-      {/* Paralaje aplicado SOLAMENTE a los símbolos del fondo */}
       {acentosGraficos.map((acento) => (
         <motion.div
           key={acento.id}
-          className={`absolute text-brand-blue/10 md:text-brand-blue/30 font-light pointer-events-none z-0 ${acento.size}`}
+          // Agregamos will-change-transform para fluidez máxima
+          className={`absolute text-brand-blue/10 md:text-brand-blue/30 font-light pointer-events-none z-0 ${acento.size} will-change-transform`}
           style={{
             top: acento.top,
             left: acento.left,
@@ -80,7 +79,6 @@ export default function Hero() {
         </motion.div>
       ))}
 
-      {/* Bloque central: Animaciones originales INTACTAS */}
       <motion.div 
         className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-4xl mx-auto -mt-10 md:mt-0"
       >
@@ -92,6 +90,7 @@ export default function Hero() {
             scale: { duration: 1 }, 
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" } 
           }}
+          className="will-change-transform"
         >
           <img 
             src={logo} 
@@ -116,7 +115,6 @@ export default function Hero() {
           className="h-1 bg-brand-blue rounded-full mb-6"
         />
 
-        {/* AJUSTE: añadido ml-4 para mover el bloque un poco a la derecha */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -156,3 +154,5 @@ export default function Hero() {
     </section>
   );
 }
+
+export default memo(Hero);

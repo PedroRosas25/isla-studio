@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Smartphone, Video, Globe, TrendingUp, Megaphone, Lightbulb } from "lucide-react";
+import { memo } from "react";
 
 const acentosGraficos = [
-  // Distribución más abierta por toda la pantalla
   { id: 1, text: "✦", top: "5%", left: "5%", size: "text-4xl" },
   { id: 2, text: "○", top: "15%", right: "10%", size: "text-5xl" },
   { id: 3, text: "//", top: "30%", left: "15%", size: "text-2xl" },
@@ -22,26 +22,18 @@ const servicios = [
   { titulo: "Innovación y Fechas Clave", descripcion: "Desarrollamos campañas específicas para fechas comerciales y actualizamos constantemente las dinámicas para mantener una comunicación moderna.", icono: <Lightbulb size={32} className="text-brand-blue" /> }
 ];
 
-export default function ServiciosDetallados() {
+function ServiciosDetallados() {
   return (
     <section id="servicios" className="py-24 bg-zinc-900 text-brand-cream px-4 relative overflow-hidden">
       
-      {/* SÍMBOLOS MÁS NOTORIOS Y POR TODA LA PANTALLA (Ahora visibles en celular) */}
+      {/* Símbolos optimizados */}
       {acentosGraficos.map((acento) => (
         <motion.div
           key={acento.id}
-          // AQUÍ QUITAMOS EL 'hidden md:block' PARA QUE SE VEAN EN MÓVIL
-          className={`absolute text-brand-blue/30 font-black pointer-events-none ${acento.size} drop-shadow-[0_0_10px_rgba(0,122,255,0.5)]`}
-          style={{ top: acento.top, left: acento.left, right: acento.right, bottom: acento.bottom }}
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.2, 1] 
-          }}
-          transition={{ 
-            duration: 25, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
+          className={`absolute text-brand-blue/30 font-black pointer-events-none ${acento.size} drop-shadow-[0_0_10px_rgba(0,122,255,0.5)] will-change-transform`}
+          style={{ top: acento.top, left: acento.left, right: acento.right }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
         >
           {acento.text}
         </motion.div>
@@ -51,7 +43,7 @@ export default function ServiciosDetallados() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -67,12 +59,10 @@ export default function ServiciosDetallados() {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               viewport={{ once: true }}
-              // CLASES ACTUALIZADAS PARA QUE BRILLE EN CELULAR Y USE HOVER EN PC
-              className="flex flex-col p-8 bg-zinc-950/50 backdrop-blur-md rounded-2xl border border-brand-blue/30 md:border-zinc-800 hover:border-brand-blue shadow-[0_0_15px_rgba(0,122,255,0.05)] md:shadow-none transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,122,255,0.1)] relative overflow-hidden group"
+              className="flex flex-col p-8 bg-zinc-950/50 backdrop-blur-md rounded-2xl border border-brand-blue/30 md:border-zinc-800 hover:border-brand-blue transition-all duration-300 will-change-transform group"
             >
-              {/* Le agregamos group-hover al icono para que también reaccione en PC */}
               <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800 w-fit mb-6 group-hover:border-brand-blue/50 transition-colors duration-300">
                 {servicio.icono}
               </div>
@@ -90,3 +80,5 @@ export default function ServiciosDetallados() {
     </section>
   );
 }
+
+export default memo(ServiciosDetallados);

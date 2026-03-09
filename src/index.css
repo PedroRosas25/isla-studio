@@ -5,13 +5,20 @@
 @tailwind utilities;
 
 @layer base {
-  /* Todo el cuerpo de la página usa  Montserrat (moderna y gruesa) */
-  body {
-    @apply  font-montserrat text-brand-cream; 
+  /* Evitamos el scroll-behavior: smooth global porque ralentiza el scroll en muchos navegadores */
+  html {
+    scroll-behavior: auto; 
   }
-  
-  /* Todos los títulos, botones y links de navegación usan Playfair Display  (elegante y con serifa) */
-  h1, h2, h3, h4, h5, h6, nav, a, button {
+
+  body {
+    @apply font-sans text-brand-cream bg-zinc-950;
+    /* La propiedad 'antialiased' suaviza el renderizado de texto y quita carga de CPU en pantallas de alta densidad */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Usamos h1-h6 selectivos para evitar que el navegador tenga que calcular botones/links */
+  h1, h2, h3, h4, h5, h6 {
     @apply font-playfair;
   }
 }
