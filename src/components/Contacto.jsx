@@ -89,6 +89,27 @@ function Contacto() {
           </div>
         </motion.div>
 
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          /* 1. shadow-inner: Clase predeterminada de Tailwind para sombra inset.
+            2. border-zinc-700: Un borde un poquito más claro que el 800 para que se note el borde.
+            3. shadow-[inset_0_4px_15px_rgba(0,0,0,0.8)]: Sombra profunda hacia adentro.
+          */
+          className="w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden mb-12 border border-zinc-700 shadow-inner shadow-[inset_0_4px_15px_rgba(0,0,0,0.8)] relative group"
+        >
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.4428521428867!2d-68.5289732!3d-31.539458899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96814026229500e9%3A0xfec2e1813c73216!2sEl%20Nuevo%20Diario!5e0!3m2!1ses-419!2sar!4v1773098548768!5m2!1ses-419!2sar"
+            width="100%" 
+            height="100%" 
+            style={{ border: 0, filter: 'grayscale(0.5) contrast(1.1) brightness(0.9)' }} 
+            allowFullScreen="" 
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
