@@ -153,21 +153,6 @@ export default function Hero() {
           </a>
         </motion.div>
       </motion.div>
-
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-16 md:bottom-10 left-0 right-0 flex flex-col items-center gap-2 text-brand-grey z-50 pointer-events-none"
-      >
-        <span className="text-xs tracking-[0.2em] uppercase font-bold opacity-70">Deslizar</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown size={28} className="opacity-70 text-brand-blue" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
