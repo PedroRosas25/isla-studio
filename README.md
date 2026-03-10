@@ -10,12 +10,19 @@ Landing page de alto impacto desarrollada para **Isla Studio**. Este proyecto co
 ---
 
 ## 📸 Vista Previa
+<h3 align="center">Pantalla Principal</h3>
 <p align="center">
-  <img src=<img width="1905" height="925" alt="image" src="https://github.com/user-attachments/assets/cdc9528f-ba2a-4423-838c-55aea00ba7be" />
-  <img src=<img width="387" height="839" alt="image" src="https://github.com/user-attachments/assets/039422b1-0f4a-4544-a1bc-9f9921a1e462" />
-  <img src=<img width="386" height="839" alt="image" src="https://github.com/user-attachments/assets/1375c343-3e36-4f58-a379-691d4ba6190e" />
-  
->
+  <img src="public/imagenpc.png" alt="Isla Studio Principal" width="800" style="border-radius: 10px; border: 1px solid #1e1e1e;">
+</p>
+
+<h3 align="center">Pantalla Principal Mobile</h3>
+<p align="center">
+  <img src="public/imagencelular.png" alt="Isla Studio Principal Mobile" width="400" style="border-radius: 10px; border: 1px solid #1e1e1e;">
+</p>
+
+<h3 align="center">Menú Mobile</h3>
+<p align="center">
+  <img src="public/imagenmenu.png" alt="Isla Studio Menú Mobile" width="400" style="border-radius: 10px; border: 1px solid #1e1e1e;">
 </p>
 
 > [!IMPORTANTE]
