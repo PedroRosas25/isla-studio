@@ -1,10 +1,12 @@
-import { useState, useEffect, memo } from "react";
+import { useEffect, memo } from "react"; // Quitamos useState porque ya no se usa acá
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react"; 
 import logo from "../assets/logo.png";
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+// 1. Recibimos isOpen y setIsOpen como argumentos (props)
+function Navbar({ isOpen, setIsOpen }) {
+
+  // 2. BORRAMOS la línea del useState que estaba acá.
 
   useEffect(() => {
     if (isOpen) {
@@ -16,7 +18,7 @@ function Navbar() {
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
-    setIsOpen(false);
+    setIsOpen(false); // Usamos la función que viene por props
     setTimeout(() => {
       const element = document.getElementById(targetId);
       if (element) {
@@ -67,7 +69,6 @@ function Navbar() {
         </div>
       </motion.nav>
 
-      {/* MENU MOBILE - DISEÑO: "ISLA ASIMÉTRICA V3" */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -77,24 +78,18 @@ function Navbar() {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="md:hidden fixed inset-0 z-[999] bg-zinc-950 flex flex-col overflow-hidden"
           >
-            {/* 1 y 3. BLOQUE AZUL CORREGIDO: Cubre de tope a tope y llena las esquinas */}
-            <div className="absolute top-0 right-0 w-[80%] h-full bg-brand-blue/[0.04] -skew-x-12 translate-x-32 pointer-events-none z-0 border-l border-brand-blue/10 shadow-[-20px_0_50px_rgba(0,122,255,0.02)]"></div>
+            <div className="absolute top-0 right-0 w-[85%] h-full bg-brand-blue/[0.04] -skew-x-12 translate-x-28 pointer-events-none z-0 border-l border-brand-blue/10"></div>
 
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 h-20 shrink-0 z-10">
+            <div className="flex items-center justify-between px-6 h-16 shrink-0 z-10">
               <div className="flex items-center gap-3">
                 <img src={logo} alt="Isla Studio" className="h-8 w-auto"/>
-                {/* 2. FUENTE ORIGINAL: Sans, Black e Italic */}
-                <span className="text-brand-cream font-black text-xl tracking-tighter italic uppercase">
-                  ISLA STUDIO
-                </span>
+                <span className="text-brand-cream font-black text-xl tracking-tighter italic uppercase">ISLA STUDIO</span>
               </div>
               <button onClick={() => setIsOpen(false)} className="text-brand-cream p-2">
-                <X size={32} strokeWidth={1} />
+                <X size={28} strokeWidth={1.5} />
               </button>
             </div>
 
-            {/* Links */}
             <div className="flex flex-col justify-center flex-grow px-10 gap-10 z-10">
               {['valores', 'servicios', 'planes', 'equipo', 'contacto'].map((item, index) => (
                 <motion.div
@@ -104,13 +99,13 @@ function Navbar() {
                   transition={{ delay: index * 0.08 }}
                   className="relative group w-fit"
                 >
-                  <span className="absolute -left-6 -top-4 text-7xl font-black text-brand-blue/[0.04] italic pointer-events-none tracking-tighter z-0">
+                  <span className="absolute -left-6 -top-3 text-7xl font-black text-brand-blue/[0.04] italic pointer-events-none tracking-tighter z-0">
                     0{index + 1}
                   </span>
                   
                   <a 
                     onClick={(e) => handleNavClick(e, item)}
-                    className="text-5xl font-serif text-brand-cream capitalize cursor-pointer tracking-tight
+                    className="text-4xl font-serif text-brand-cream capitalize cursor-pointer tracking-tight
                                relative z-10 group-active:text-brand-blue transition-all duration-300 block"
                   >
                     {item === 'valores' ? 'Filosofía' : item}
@@ -121,14 +116,18 @@ function Navbar() {
               ))}
             </div>
 
-            {/* Footer Invertido */}
-            <div className="p-10 z-10">
-               <div className="flex items-center gap-4">
+            {/* 3. Footer invertido: Línea -> Palabra (Modificado) */}
+            <div className="p-10 z-10 w-full">
+              <div className="flex items-center gap-6">
+                  
+                  {/* 3.1 La línea a la izquierda (Aumentamos el flex-grow para que empuje) */}
+                  <div className="h-[1px] flex-grow bg-zinc-800/50"></div>
+
+                  {/* 3.2 La palabra a la derecha */}
                   <span className="text-[10px] text-brand-blue font-bold tracking-[0.5em] uppercase whitespace-nowrap">
                     Creative Studio
-                  </span>
-                  <div className="h-[1px] flex-grow bg-zinc-800/50"></div>
-               </div>
+                    </span>
+              </div>
             </div>
           </motion.div>
         )}

@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState } from 'react'; // Agregamos useState
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WppFloat from "./components/WppFloat";
@@ -11,21 +11,25 @@ const Equipo = lazy(() => import('./components/Equipo'));
 const Contacto = lazy(() => import('./components/Contacto'));
 
 function App() {
+  // Creamos el estado aquí para que lo compartan el Navbar y el Botón de WPP
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <main className="bg-zinc-950 min-h-screen overflow-x-hidden">
-      <Navbar />
+      {/* Pasamos el estado al Navbar para que lo controle */}
+      <Navbar isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       
       <Hero />
 
-      {/* Suspense muestra un estado de carga opcional mientras se descarga el JS del componente */}
       <Suspense fallback={<div className="h-20" />}>
         <Valores />
         <ServiciosDetallados />
         <Planes />
         <Equipo />
         <Contacto />
-        {/* Botón Flotante */}
-        <WppFloat />
+        
+        {/* LÓGICA DE VISIBILIDAD: Solo se renderiza si el menú está cerrado */}
+        {!isMenuOpen && <WppFloat />}
       </Suspense>
     </main>
   );
