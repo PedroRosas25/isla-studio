@@ -21,7 +21,7 @@ Landing page de alto impacto desarrollada para **Isla Studio**. Este proyecto co
 
 <h3 align="center">Pantalla Principal Mobile</h3>
 <p align="center">
-  <img src="public/imagecelular.png" alt="Isla Studio Principal Mobile" width="400" style="border-radius: 10px; border: 1px solid #1e1e1e;">
+  <img src="public/imagencelular.png" alt="Isla Studio Principal Mobile" width="400" style="border-radius: 10px; border: 1px solid #1e1e1e;">
 </p>
 
 <h3 align="center">Menú Mobile</h3>
