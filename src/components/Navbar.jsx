@@ -67,55 +67,68 @@ function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Menú Mobile */}
+      {/* MENU MOBILE - DISEÑO: "ISLA ASIMÉTRICA V3" */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden fixed inset-0 z-[999] bg-zinc-950 flex flex-col"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="md:hidden fixed inset-0 z-[999] bg-zinc-950 flex flex-col overflow-hidden"
           >
-            {/* Header del menú */}
-            <div className="flex items-center justify-between px-6 h-16 border-b border-zinc-800 shrink-0">
+            {/* 1 y 3. BLOQUE AZUL CORREGIDO: Cubre de tope a tope y llena las esquinas */}
+            <div className="absolute top-0 right-0 w-[80%] h-full bg-brand-blue/[0.04] -skew-x-12 translate-x-32 pointer-events-none z-0 border-l border-brand-blue/10 shadow-[-20px_0_50px_rgba(0,122,255,0.02)]"></div>
+
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 h-20 shrink-0 z-10">
               <div className="flex items-center gap-3">
                 <img src={logo} alt="Isla Studio" className="h-8 w-auto"/>
-                <span className="text-brand-cream font-black text-lg">ISLA STUDIO</span>
+                {/* 2. FUENTE ORIGINAL: Sans, Black e Italic */}
+                <span className="text-brand-cream font-black text-xl tracking-tighter italic uppercase">
+                  ISLA STUDIO
+                </span>
               </div>
               <button onClick={() => setIsOpen(false)} className="text-brand-cream p-2">
-                <X size={28} />
+                <X size={32} strokeWidth={1} />
               </button>
             </div>
 
-            {/* Links centrados */}
-            <div className="flex flex-col items-center justify-center flex-grow gap-8">
-              {['valores', 'servicios', 'planes', 'equipo'].map((item, index) => (
-                <motion.a
+            {/* Links */}
+            <div className="flex flex-col justify-center flex-grow px-10 gap-10 z-10">
+              {['valores', 'servicios', 'planes', 'equipo', 'contacto'].map((item, index) => (
+                <motion.div
                   key={item}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.08, duration: 0.3 }}
-                  onClick={(e) => handleNavClick(e, item)}
-                  className="text-3xl font-bold text-brand-cream hover:text-brand-blue transition-colors capitalize cursor-pointer"
+                  initial={{ x: 40, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.08 }}
+                  className="relative group w-fit"
                 >
-                  {item === 'valores' ? 'Filosofía' : item}
-                </motion.a>
+                  <span className="absolute -left-6 -top-4 text-7xl font-black text-brand-blue/[0.04] italic pointer-events-none tracking-tighter z-0">
+                    0{index + 1}
+                  </span>
+                  
+                  <a 
+                    onClick={(e) => handleNavClick(e, item)}
+                    className="text-5xl font-serif text-brand-cream capitalize cursor-pointer tracking-tight
+                               relative z-10 group-active:text-brand-blue transition-all duration-300 block"
+                  >
+                    {item === 'valores' ? 'Filosofía' : item}
+                  </a>
+
+                  <div className="w-10 h-[2px] bg-brand-blue mt-2 opacity-0 group-active:opacity-100 transition-opacity"></div>
+                </motion.div>
               ))}
             </div>
 
-            {/* Botón CTA posicionado abajo */}
-            <div className="px-6 pb-12 pt-4 shrink-0">
-              <motion.a
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.3 }}
-                href="#contacto"
-                onClick={(e) => handleNavClick(e, 'contacto')}
-                className="block w-full text-center px-6 py-3 bg-brand-blue text-brand-cream text-lg font-bold rounded-full shadow-[0_0_25px_rgba(0,122,255,0.5)]"
-              >
-                Consultar Ahora
-              </motion.a>
+            {/* Footer Invertido */}
+            <div className="p-10 z-10">
+               <div className="flex items-center gap-4">
+                  <span className="text-[10px] text-brand-blue font-bold tracking-[0.5em] uppercase whitespace-nowrap">
+                    Creative Studio
+                  </span>
+                  <div className="h-[1px] flex-grow bg-zinc-800/50"></div>
+               </div>
             </div>
           </motion.div>
         )}

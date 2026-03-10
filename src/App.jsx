@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import WppFloat from "./components/WppFloat";
 
 // Cargamos los componentes "pesados" solo cuando sean necesarios
 const Valores = lazy(() => import('./components/Valores'));
@@ -23,6 +24,8 @@ function App() {
         <Planes />
         <Equipo />
         <Contacto />
+        {/* Botón Flotante */}
+        <WppFloat />
       </Suspense>
     </main>
   );

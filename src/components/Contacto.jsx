@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Instagram, Mail } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaTiktok } from "react-icons/fa";
 import { memo, useState, useEffect } from "react";
 import LegalModal from "./LegalModal";
 
@@ -108,7 +108,33 @@ Podés desactivar las cookies desde la configuración de tu navegador, aunque es
               <a href="https://www.instagram.com/studios_isla/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-zinc-900 border border-zinc-800 hover:border-pink-500 p-4 rounded-full transition-all group shadow-inner shadow-black/30">
                 <Instagram size={24} className="text-pink-500 transition-transform group-hover:scale-110" />
               </a>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=islastudio39@gmail.com&su=Consulta+desde+la+Web" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-zinc-900 border border-zinc-800 hover:border-brand-blue p-4 rounded-full transition-all group shadow-inner shadow-black/30">
+
+              <a href="https://www.tiktok.com/@isla.studios" target="_blank" rel="noopener noreferrer" 
+                className="flex items-center justify-center bg-zinc-900 border border-zinc-800 hover:border-white p-4 rounded-full transition-all group shadow-inner shadow-black/30">
+                <FaTiktok size={24} className="text-white transition-transform group-hover:scale-110" />
+              </a>
+
+              <a 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const email = "islastudio39@gmail.com";
+                  const subject = "Consulta desde la Web";
+                  const body = "Hola Isla Studio! Me gustaría consultar por...";
+                  
+                  // Detectamos si es un dispositivo móvil
+                  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+                  if (isMobile) {
+                    // Si es celular, usamos mailto:
+                    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                  } else {
+                    // Si es PC, abrimos Gmail en una pestaña nueva (versión web limpia)
+                    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.open(gmailUrl, '_blank');
+                  }
+                }}
+                className="flex items-center justify-center bg-zinc-900 border border-zinc-800 hover:border-brand-blue p-4 rounded-full transition-all group shadow-inner shadow-black/30 cursor-pointer"
+              >
                 <Mail size={24} className="text-brand-blue transition-transform group-hover:scale-110" />
               </a>
             </div>
