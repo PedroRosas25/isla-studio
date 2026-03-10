@@ -1,3 +1,7 @@
+DESARROLLADO POR PEDRO ROSAS
+
+Proyecto diseñado para reflejar la visión creativa de Juan Carlos Bataller, Santiago Castro y el equipo de Isla Studio.
+
 # 🌊 Isla Studio - Creative Agency Digital Experience
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
